@@ -8,9 +8,10 @@
     --cor-texto: #1c1c1c;
     --cor-texto-secundaria: #ffffff;
     
-    --cor-overlay: #00000085;
+    --cor-overlay: #00000075;
+    --cor-borda: #BBBBBB;
 
-    --cor-gradiente: linear-gradient(270deg, #3498DB 9.74%, #34495E 98.57%);
+    --cor-gradiente: linear-gradient(to right, #34495E, #3498DB);
 }
 
 /*Limpeza de estilos padrões do navegador */
@@ -22,19 +23,34 @@
     list-style: none;
 }
 
+/* Classes utilitárias */
+.visuallyhidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* Definindo estilos gerais */
 body{
     font-family: var(--fonte-primaria);
     background-color: var(--cor-principal);
     color: var(--cor-texto);
 }
+
 /* id identificador # */
 .section-contador{
     background-image: url("imagens/img5.png");
-    height: 80dvh;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+
+    height: 80dvh;
 }
 /* 
 80 - 80% 
@@ -52,10 +68,101 @@ h - Altura
     justify-content: space-around; /*alinhando os elementos no eixo horizontal */
 }
 
-.contador p{
-    color: var(--cor-texto-secundaria);
+.contador div{
+    text-align: center;
 }
 
+.contador p{
+    color: var(--cor-texto-secundaria);
+    text-shadow: .125rem .125rem #000000;
+}
+
+.contador p:first-child{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.novidades{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 80dvh;
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 1rem;
+}
+
+.novidades h2{
+    font-size: 2.375rem;
+    background: var(--cor-gradiente);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    
+    margin-bottom: 1rem;
+}
+
+.novidades h2+p{
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.novidades p+p{
+    font-size: 1rem;
+    max-width: 75ch;
+}
+
+.novidades form{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 1.5rem auto 0 auto;
+}
+
+input,button{
+    height: 3rem;
+    border-radius: 3.375rem;
+}
+
+input{
+    border-width: 1px;
+    border-color: var(--cor-borda);
+    border-style: solid;
+    padding: 1rem;
+}
+
+button{
+    border: 0;
+    background: var(--cor-gradiente);
+    font-weight: 500;
+    color: var(--cor-principal);
+}
+
+.andamento{
+    /* padding: top/bottom left/right */
+    padding: 4.75rem 1rem;
+    text-align: center;
+}
+
+.andamento h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.andamento p{
+    /* ALTERADO: Mudamos de 5rem para 1rem para o texto não empurrar tudo para fora da página */
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+/* Provisório remover no futuro */
 img{
   max-height: 100%;
 }
